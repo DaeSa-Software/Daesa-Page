@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: #F5F7FA; color: #16243D; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  [data-rev] { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.16,.84,.44,1), transform .7s cubic-bezier(.16,.84,.44,1); }
+  [data-rev="in"] { opacity: 1; transform: none; }
+  @keyframes floaty { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-14px) rotate(-2deg); } }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .25; } }
+  ::selection { background: #2B6FE3; color: #fff; }
+</style>
+</helmet>
+
+<div style="overflow-x:hidden">
+
+  <!-- ===================== NAV ===================== -->
+  <nav style="{{ navStyle }}">
+    <div style="max-width:1200px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="#top" style="display:flex;align-items:center;gap:11px">
+        <img src="assets/daesa-mark.png" alt="DAESA" style="width:38px;height:38px;object-fit:contain;filter:{{ logoFilter }}" />
+        <span style="display:flex;flex-direction:column;line-height:1">
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.01em;color:{{ navTextColor }}">daesa</span>
+          <span style="font-size:9px;font-weight:600;letter-spacing:.42em;color:{{ navMutedColor }};margin-top:3px">SOFTWARE</span>
+        </span>
+      </a>
+      <div style="display:flex;align-items:center;gap:34px">
+        <div style="display:flex;align-items:center;gap:30px" data-nav-links>
+          <a href="#servicios" style="font-size:14.5px;font-weight:500;color:{{ navTextColor }};opacity:.85">Servicios</a>
+          <a href="#portafolio" style="font-size:14.5px;font-weight:500;color:{{ navTextColor }};opacity:.85">Portafolio</a>
+          <a href="#proceso" style="font-size:14.5px;font-weight:500;color:{{ navTextColor }};opacity:.85">Proceso</a>
+          <a href="#significado" style="font-size:14.5px;font-weight:500;color:{{ navTextColor }};opacity:.85">Significado</a>
+        </div>
+        <a href="#contacto" style="display:inline-flex;align-items:center;gap:8px;background:{{ accent }};color:#fff;font-weight:600;font-size:14px;padding:11px 20px;border-radius:10px;box-shadow:0 6px 18px {{ accentGlow }}">Hablemos →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header id="top" style="position:relative;background:radial-gradient(1100px 620px at 78% -8%, #16315E 0%, #0B1A33 52%, #081326 100%);color:#fff;padding:148px 32px 110px;overflow:hidden">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:54px 54px;mask-image:radial-gradient(900px 600px at 75% 0%, #000 0%, transparent 75%);-webkit-mask-image:radial-gradient(900px 600px at 75% 0%, #000 0%, transparent 75%)"></div>
+    <div style="position:absolute;width:520px;height:520px;border-radius:50%;background:{{ accent }};filter:blur(180px);opacity:.28;top:-120px;right:-60px"></div>
+
+    <div style="position:relative;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:7px 14px;border-radius:100px;font-size:12.5px;font-weight:600;letter-spacing:.04em;color:#BFD2F2;margin-bottom:26px">
+          <span style="width:7px;height:7px;border-radius:50%;background:{{ highlight }};box-shadow:0 0 0 4px {{ highlightGlow }}"></span>
+          Agencia de desarrollo de software
+        </div>
+        <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:62px;line-height:1.04;letter-spacing:-.025em;margin-bottom:24px">
+          {{ heroTitle }} <span style="color:{{ highlight }}">{{ heroAccent }}</span>
+        </h1>
+        <p style="font-size:18.5px;line-height:1.6;color:#A9B8D4;max-width:520px;margin-bottom:38px">
+          Desarrollamos aplicaciones, videojuegos y sistemas de punto de venta a la medida para negocios que quieren crecer con tecnología.
+        </p>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+          <a href="#portafolio" style="display:inline-flex;align-items:center;gap:9px;background:{{ accent }};color:#fff;font-weight:600;font-size:15.5px;padding:15px 26px;border-radius:12px;box-shadow:0 10px 30px {{ accentGlow }}">Ver portafolio →</a>
+          <a href="#contacto" style="display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#fff;font-weight:600;font-size:15.5px;padding:15px 26px;border-radius:12px">Cotizar proyecto</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:26px;margin-top:48px;flex-wrap:wrap">
+          <sc-for list="{{ heroTags }}" as="t" hint-placeholder-count="4">
+            <span style="font-size:13.5px;font-weight:500;color:#8597B8;display:flex;align-items:center;gap:9px">
+              <span style="width:5px;height:5px;border-radius:50%;background:{{ highlight }}"></span>{{ t.label }}
+            </span>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- App window mock -->
+      <div style="position:relative">
+        <div style="position:absolute;inset:-8% -6%;background:linear-gradient(140deg,{{ accent }},transparent 70%);opacity:.18;filter:blur(40px);border-radius:30px"></div>
+        <div style="position:relative;background:#0E2143;border:1px solid rgba(255,255,255,.1);border-radius:18px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);overflow:hidden">
+          <div style="display:flex;align-items:center;gap:7px;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02)">
+            <span style="width:11px;height:11px;border-radius:50%;background:#FF5F57"></span>
+            <span style="width:11px;height:11px;border-radius:50%;background:#FEBC2E"></span>
+            <span style="width:11px;height:11px;border-radius:50%;background:#28C840"></span>
+            <span style="margin-left:12px;font-family:'Space Grotesk',monospace;font-size:11px;color:#6E82A8">daesa · panel.app</span>
+          </div>
+          <div style="display:grid;grid-template-columns:54px 1fr;min-height:286px">
+            <div style="background:rgba(255,255,255,.03);border-right:1px solid rgba(255,255,255,.06);padding:16px 0;display:flex;flex-direction:column;align-items:center;gap:14px">
+              <span style="width:22px;height:22px;border-radius:7px;background:{{ accent }}"></span>
+              <span style="width:18px;height:18px;border-radius:6px;background:rgba(255,255,255,.14)"></span>
+              <span style="width:18px;height:18px;border-radius:6px;background:rgba(255,255,255,.14)"></span>
+              <span style="width:18px;height:18px;border-radius:6px;background:rgba(255,255,255,.14)"></span>
+            </div>
+            <div style="padding:20px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+                <span style="height:9px;width:120px;border-radius:5px;background:rgba(255,255,255,.22)"></span>
+                <span style="height:22px;width:62px;border-radius:7px;background:{{ accent }};opacity:.85"></span>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px">
+                <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px"><span style="display:block;height:7px;width:60%;border-radius:4px;background:rgba(255,255,255,.16);margin-bottom:9px"></span><span style="display:block;height:14px;width:80%;border-radius:4px;background:{{ accent }};opacity:.7"></span></div>
+                <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px"><span style="display:block;height:7px;width:60%;border-radius:4px;background:rgba(255,255,255,.16);margin-bottom:9px"></span><span style="display:block;height:14px;width:70%;border-radius:4px;background:rgba(255,255,255,.3)"></span></div>
+                <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px"><span style="display:block;height:7px;width:60%;border-radius:4px;background:rgba(255,255,255,.16);margin-bottom:9px"></span><span style="display:block;height:14px;width:75%;border-radius:4px;background:rgba(255,255,255,.3)"></span></div>
+              </div>
+              <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px;height:118px;display:flex;align-items:flex-end;gap:9px">
+                <span style="flex:1;height:38%;background:rgba(255,255,255,.16);border-radius:5px 5px 0 0"></span>
+                <span style="flex:1;height:58%;background:rgba(255,255,255,.16);border-radius:5px 5px 0 0"></span>
+                <span style="flex:1;height:44%;background:rgba(255,255,255,.16);border-radius:5px 5px 0 0"></span>
+                <span style="flex:1;height:74%;background:{{ accent }};border-radius:5px 5px 0 0"></span>
+                <span style="flex:1;height:62%;background:rgba(255,255,255,.16);border-radius:5px 5px 0 0"></span>
+                <span style="flex:1;height:88%;background:{{ accent }};border-radius:5px 5px 0 0"></span>
+                <span style="flex:1;height:70%;background:rgba(255,255,255,.16);border-radius:5px 5px 0 0"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="position:absolute;bottom:-26px;left:-30px;background:#fff;color:#0B1A33;border-radius:14px;padding:14px 18px;box-shadow:0 24px 50px -18px rgba(0,0,0,.5);display:flex;align-items:center;gap:12px;animation:floaty 6s ease-in-out infinite">
+          <span style="font-family:'Space Grotesk',monospace;font-size:13px;font-weight:600;color:{{ highlight }}">&lt;/&gt;</span>
+          <span style="font-size:13px;font-weight:600;line-height:1.3">Código que crea.<br><span style="color:#5C6B85;font-weight:500">Soluciones que transforman.</span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== SERVICIOS ===================== -->
+  <section id="servicios" style="max-width:1200px;margin:0 auto;padding:96px 32px 40px">
+    <div data-rev style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:46px;flex-wrap:wrap">
+      <div>
+        <span style="font-family:'Space Grotesk',monospace;font-size:13px;font-weight:600;letter-spacing:.16em;color:{{ highlight }}">/ SERVICIOS</span>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:40px;letter-spacing:-.02em;color:#0B1A33;margin-top:12px;max-width:560px;line-height:1.1">Lo que construimos para tu negocio</h2>
+      </div>
+      <p style="font-size:16px;color:#5C6B85;max-width:330px;line-height:1.6">Desde una idea hasta un producto en producción: diseño, desarrollo, lanzamiento y soporte.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+      <sc-for list="{{ services }}" as="s" hint-placeholder-count="4">
+        <div data-rev style="background:#fff;border:1px solid #E6E9EF;border-radius:16px;padding:28px 24px;transition:transform .25s, box-shadow .25s, border-color .25s" style-hover="transform:translateY(-6px);box-shadow:0 22px 44px -22px rgba(11,26,51,.28);border-color:#D5DEEE">
+          <div style="width:48px;height:48px;border-radius:13px;background:{{ s.iconBg }};display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px">{{ s.icon }}</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18.5px;color:#0B1A33;margin-bottom:10px">{{ s.title }}</h3>
+          <p style="font-size:14.5px;line-height:1.6;color:#5C6B85">{{ s.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===================== PORTAFOLIO ===================== -->
+  <section id="portafolio" style="max-width:1200px;margin:0 auto;padding:80px 32px 40px">
+    <div data-rev style="text-align:center;margin-bottom:38px">
+      <span style="font-family:'Space Grotesk',monospace;font-size:13px;font-weight:600;letter-spacing:.16em;color:{{ highlight }}">/ PORTAFOLIO</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:44px;letter-spacing:-.02em;color:#0B1A33;margin-top:12px;line-height:1.08">Proyectos que hemos construido</h2>
+      <p style="font-size:17px;color:#5C6B85;max-width:540px;margin:16px auto 0;line-height:1.6">Una muestra de soluciones reales. Filtra por tipo de proyecto y reemplaza estas tarjetas con tu propio trabajo.</p>
+    </div>
+
+    <!-- filtros -->
+    <div data-rev style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:36px">
+      <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
+        <button onClick="{{ f.onClick }}" style="{{ f.style }}">{{ f.label }}</button>
+      </sc-for>
+    </div>
+
+    <!-- grid -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+      <sc-for list="{{ visibleProjects }}" as="p" hint-placeholder-count="6">
+        <article style="background:#fff;border:1px solid #E6E9EF;border-radius:18px;overflow:hidden;cursor:pointer;transition:transform .28s cubic-bezier(.16,.84,.44,1), box-shadow .28s, border-color .28s" style-hover="transform:translateY(-8px);box-shadow:0 30px 60px -28px rgba(11,26,51,.34);border-color:#D5DEEE">
+          <div style="position:relative;height:182px;{{ p.thumbStyle }};display:flex;align-items:center;justify-content:center;overflow:hidden">
+            <div style="position:absolute;inset:0;background-image:linear-gradient(135deg, rgba(255,255,255,.5) 1px, transparent 1px);background-size:13px 13px;opacity:.5"></div>
+            <span style="position:relative;font-family:'Space Grotesk',monospace;font-size:12px;font-weight:600;letter-spacing:.05em;color:{{ p.thumbInk }};background:rgba(255,255,255,.7);padding:7px 13px;border-radius:8px;backdrop-filter:blur(2px)">[ captura del proyecto ]</span>
+            <span style="position:absolute;top:14px;left:14px;font-family:'Space Grotesk',monospace;font-size:24px;font-weight:700;color:{{ p.thumbInk }};opacity:.5">{{ p.num }}</span>
+          </div>
+          <div style="padding:22px 22px 24px">
+            <span style="display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:{{ accent }};background:{{ accentTint }};padding:5px 11px;border-radius:7px;margin-bottom:13px">{{ p.cat }}</span>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;color:#0B1A33;line-height:1.2;margin-bottom:9px">{{ p.title }}</h3>
+            <p style="font-size:14.5px;line-height:1.6;color:#5C6B85;margin-bottom:16px">{{ p.desc }}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px">
+              <sc-for list="{{ p.tags }}" as="tag" hint-placeholder-count="3">
+                <span style="font-size:12px;font-weight:500;color:#445170;background:#F1F4F9;border:1px solid #E6E9EF;padding:4px 10px;border-radius:6px">{{ tag }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+
+    <div data-rev style="margin-top:40px;display:flex;justify-content:center">
+      <a href="#contacto" style="display:inline-flex;align-items:center;gap:10px;border:1.5px dashed #C5D0E2;color:#0B1A33;font-weight:600;font-size:15px;padding:16px 28px;border-radius:14px;background:#fff">+ ¿Tu proyecto es el siguiente? Hablemos →</a>
+    </div>
+  </section>
+
+  <!-- ===================== SIGNIFICADO (DAESA) ===================== -->
+  <section id="significado" style="background:linear-gradient(180deg,#0B1A33,#081326);color:#fff;margin-top:60px;padding:88px 32px">
+    <div style="max-width:1200px;margin:0 auto">
+      <div data-rev style="text-align:center;margin-bottom:54px">
+        <span style="font-family:'Space Grotesk',monospace;font-size:13px;font-weight:600;letter-spacing:.16em;color:{{ highlight }}">/ NUESTRO NOMBRE</span>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:40px;letter-spacing:-.02em;margin-top:12px">DAESA también significa</h2>
+        <p style="font-size:16.5px;color:#A9B8D4;max-width:520px;margin:14px auto 0;line-height:1.6">Una marca con raíces personales y visión de futuro: cada letra define cómo trabajamos.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid rgba(255,255,255,.1);border-radius:18px;overflow:hidden">
+        <sc-for list="{{ meaning }}" as="m" hint-placeholder-count="5">
+          <div data-rev style="padding:34px 22px;border-right:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.015)">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:52px;color:{{ accent }};line-height:1">{{ m.letter }}</span>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;margin:14px 0 9px">{{ m.word }}</h3>
+            <p style="font-size:13.5px;line-height:1.55;color:#8597B8">{{ m.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESO ===================== -->
+  <section id="proceso" style="max-width:1200px;margin:0 auto;padding:92px 32px 40px">
+    <div data-rev style="text-align:center;margin-bottom:54px">
+      <span style="font-family:'Space Grotesk',monospace;font-size:13px;font-weight:600;letter-spacing:.16em;color:{{ highlight }}">/ CÓMO TRABAJAMOS</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:40px;letter-spacing:-.02em;color:#0B1A33;margin-top:12px">De la idea a producción</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:18px;position:relative">
+      <sc-for list="{{ process }}" as="p" hint-placeholder-count="5">
+        <div data-rev style="background:#fff;border:1px solid #E6E9EF;border-radius:16px;padding:26px 22px">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:{{ accentTint }};color:{{ accent }};font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;margin-bottom:18px">{{ p.num }}</span>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16.5px;color:#0B1A33;margin-bottom:9px">{{ p.title }}</h3>
+          <p style="font-size:13.5px;line-height:1.55;color:#5C6B85">{{ p.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===================== VALORES ===================== -->
+  <section style="max-width:1200px;margin:0 auto;padding:60px 32px 40px">
+    <div data-rev style="background:#fff;border:1px solid #E6E9EF;border-radius:22px;padding:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:34px">
+      <sc-for list="{{ values }}" as="v" hint-placeholder-count="4">
+        <div>
+          <div style="width:14px;height:14px;border-radius:4px;background:{{ highlight }};margin-bottom:16px"></div>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;color:#0B1A33;margin-bottom:8px">{{ v.title }}</h3>
+          <p style="font-size:14px;line-height:1.6;color:#5C6B85">{{ v.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section id="contacto" style="max-width:1200px;margin:0 auto;padding:70px 32px 90px">
+    <div data-rev style="position:relative;background:radial-gradient(900px 500px at 85% 0%, #16315E 0%, #0B1A33 60%);border-radius:26px;padding:64px 56px;color:#fff;overflow:hidden">
+      <div style="position:absolute;width:420px;height:420px;border-radius:50%;background:{{ accent }};filter:blur(160px);opacity:.3;bottom:-180px;left:-80px"></div>
+      <div style="position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center">
+        <div>
+          <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:42px;letter-spacing:-.02em;line-height:1.08;margin-bottom:18px">Hablemos de tu proyecto</h2>
+          <p style="font-size:17px;line-height:1.6;color:#A9B8D4;max-width:430px;margin-bottom:32px">Cuéntanos qué necesitas y te proponemos la mejor solución tecnológica. Sin compromiso.</p>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <a href="https://wa.me/528449123671" target="_blank" style="display:inline-flex;align-items:center;gap:14px;background:{{ accent }};color:#fff;font-weight:600;font-size:16px;padding:16px 24px;border-radius:13px;box-shadow:0 12px 30px {{ accentGlow }};width:fit-content">
+              <span style="font-size:20px">💬</span> WhatsApp · {{ contactWhatsapp }}
+            </a>
+            <a href="/cdn-cgi/l/email-protection#0c77772c6f6362786d6f7849616d65602c7171" style="display:inline-flex;align-items:center;gap:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);color:#fff;font-weight:600;font-size:16px;padding:16px 24px;border-radius:13px;width:fit-content">
+              <span style="font-size:18px">✉️</span> {{ contactEmail }}
+            </a>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:28px">
+          <span style="font-family:'Space Grotesk',monospace;font-size:12px;color:#8597B8;letter-spacing:.05em">// solicitud rápida</span>
+          <div style="margin-top:18px;display:flex;flex-direction:column;gap:13px">
+            <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:14px 16px;font-size:14.5px;color:#7E90B2">Tu nombre</div>
+            <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:14px 16px;font-size:14.5px;color:#7E90B2">¿Qué tipo de proyecto?</div>
+            <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:14px 16px;font-size:14.5px;color:#7E90B2;height:84px">Cuéntanos un poco más…</div>
+            <button style="background:{{ accent }};color:#fff;font-weight:600;font-size:15px;padding:14px;border:none;border-radius:11px;cursor:pointer;box-shadow:0 10px 26px {{ accentGlow }}">Enviar solicitud →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="background:#081326;color:#fff;padding:54px 32px 38px">
+    <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:34px">
+      <div style="max-width:330px">
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:16px">
+          <img src="assets/daesa-mark.png" alt="DAESA" style="width:36px;height:36px;object-fit:contain;filter:brightness(0) invert(1)" />
+          <span style="display:flex;flex-direction:column;line-height:1">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px">daesa</span>
+            <span style="font-size:8.5px;font-weight:600;letter-spacing:.42em;color:#6E82A8;margin-top:3px">SOFTWARE</span>
+          </span>
+        </div>
+        <p style="font-size:14px;line-height:1.6;color:#8597B8">Código que crea. Soluciones que transforman. Desarrollo de software a la medida para negocios que quieren crecer.</p>
+      </div>
+      <div style="display:flex;gap:64px;flex-wrap:wrap">
+        <div>
+          <span style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#6E82A8;text-transform:uppercase">Navegación</span>
+          <div style="display:flex;flex-direction:column;gap:11px;margin-top:16px">
+            <a href="#servicios" style="font-size:14.5px;color:#A9B8D4">Servicios</a>
+            <a href="#portafolio" style="font-size:14.5px;color:#A9B8D4">Portafolio</a>
+            <a href="#proceso" style="font-size:14.5px;color:#A9B8D4">Proceso</a>
+            <a href="#contacto" style="font-size:14.5px;color:#A9B8D4">Contacto</a>
+          </div>
+        </div>
+        <div>
+          <span style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#6E82A8;text-transform:uppercase">Contacto</span>
+          <div style="display:flex;flex-direction:column;gap:11px;margin-top:16px">
+            <a href="https://wa.me/528449123671" target="_blank" style="font-size:14.5px;color:#A9B8D4">WhatsApp · {{ contactWhatsapp }}</a>
+            <a href="/cdn-cgi/l/email-protection#1a61613a7975746e7b796e5f777b73763a6767" style="font-size:14.5px;color:#A9B8D4">{{ contactEmail }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1200px;margin:24px auto 0;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+      <span style="font-size:13px;color:#5C6B85">© 2026 DAESA Software. Todos los derechos reservados.</span>
+      <span style="font-family:'Space Grotesk',monospace;font-size:13px;color:{{ highlight }}">&lt;/&gt; hecho con código</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 1200, &quot;height&quot;: 900 },
+  &quot;accent&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#2B6FE3&quot; },
+  &quot;highlight&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#FF6A2B&quot; },
+  &quot;heroTitle&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Software a la medida que&quot; },
+  &quot;heroAccent&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;impulsa tu negocio.&quot; },
+  &quot;contactWhatsapp&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;844 912 3671&quot; },
+  &quot;contactEmail&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;ing.gaytan@icloud.com&quot; }
+}">
+class Component extends DCLogic {
+  state = { filter: 'Todos', scrolled: false };
+
+  componentDidMount() {
+    this._onScroll = () => {
+      const s = window.scrollY > 30;
+      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.setAttribute('data-rev', 'in'); this._io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    setTimeout(() => { document.querySelectorAll('[data-rev]').forEach(el => this._io.observe(el)); }, 60);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    if (this._io) this._io.disconnect();
+  }
+
+  hexToRgba(hex, a) {
+    const h = (hex || '#2B6FE3').replace('#', '');
+    const n = parseInt(h.length === 3 ? h.split('').map(c => c + c).join('') : h, 16);
+    return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${a})`;
+  }
+
+  renderVals() {
+    const accent = this.props.accent || '#2B6FE3';
+    const accentTint = this.hexToRgba(accent, 0.10);
+    const accentGlow = this.hexToRgba(accent, 0.40);
+    const highlight = this.props.highlight || '#FF6A2B';
+    const highlightTint = this.hexToRgba(highlight, 0.12);
+    const highlightGlow = this.hexToRgba(highlight, 0.45);
+    const scrolled = this.state.scrolled;
+
+    const navStyle = {
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+      transition: 'background .3s, box-shadow .3s, border-color .3s',
+      background: scrolled ? 'rgba(255,255,255,.88)' : 'transparent',
+      backdropFilter: scrolled ? 'saturate(180%) blur(14px)' : 'none',
+      WebkitBackdropFilter: scrolled ? 'saturate(180%) blur(14px)' : 'none',
+      borderBottom: scrolled ? '1px solid #E6E9EF' : '1px solid transparent',
+      boxShadow: scrolled ? '0 6px 30px -18px rgba(11,26,51,.3)' : 'none',
+    };
+    const navTextColor = scrolled ? '#0B1A33' : '#FFFFFF';
+    const navMutedColor = scrolled ? '#7E8AA3' : 'rgba(255,255,255,.55)';
+    const logoFilter = scrolled ? 'none' : 'brightness(0) invert(1)';
+
+    const services = [
+      { icon: '🧩', iconBg: accentTint, title: 'Software a la medida', desc: 'Aplicaciones web y de escritorio diseñadas exactamente para tu forma de trabajar.' },
+      { icon: '🎮', iconBg: accentTint, title: 'Videojuegos', desc: 'Experiencias interactivas y envolventes para múltiples plataformas.' },
+      { icon: '🛒', iconBg: accentTint, title: 'Punto de venta (POS)', desc: 'Sistemas eficientes y fáciles de usar para administrar tu negocio.' },
+      { icon: '🌐', iconBg: accentTint, title: 'E-commerce', desc: 'Tiendas en línea e integraciones con Shopify, TikTok Shop y Mercado Libre.' },
+    ];
+
+    const allProjects = [
+      { cat: 'Punto de venta', title: 'Sistema POS para cafetería', desc: 'Cobro rápido, control de inventario y reportes de ventas en tiempo real.', tags: ['.NET', 'SQL', 'Reportes'], tone: '#0B1A33' },
+      { cat: 'E-commerce', title: 'Tienda de gorras personalizadas', desc: 'Catálogo, personalizador de producto y pagos integrados multicanal.', tags: ['Shopify', 'TikTok Shop', 'Pagos'], tone: accent },
+      { cat: 'Videojuegos', title: 'Juego de plataformas 2D', desc: 'Aventura con niveles, físicas y guardado de progreso multiplataforma.', tags: ['Unity', 'C#', 'Móvil'], tone: '#16315E' },
+      { cat: 'Software a la medida', title: 'Panel de inventario', desc: 'Dashboard con métricas, alertas de stock y gestión de proveedores.', tags: ['React', 'Node', 'Dashboards'], tone: accent },
+      { cat: 'Software a la medida', title: 'App de pedidos para restaurante', desc: 'Pedidos desde mesa, cocina conectada y seguimiento de órdenes.', tags: ['React Native', 'API', 'Tiempo real'], tone: '#0B1A33' },
+      { cat: 'E-commerce', title: 'Integración Mercado Libre', desc: 'Sincronización de catálogo, stock y pedidos con automatización.', tags: ['Integraciones', 'Automatización'], tone: '#16315E' },
+    ];
+
+    const cats = ['Todos', 'Software a la medida', 'Videojuegos', 'Punto de venta', 'E-commerce'];
+    const active = this.state.filter;
+    const filters = cats.map(label => {
+      const on = label === active;
+      return {
+        label,
+        onClick: () => this.setState({ filter: label }),
+        style: {
+          cursor: 'pointer',
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontWeight: 600, fontSize: '14px',
+          padding: '10px 18px', borderRadius: '100px',
+          transition: 'all .2s',
+          border: on ? `1px solid ${accent}` : '1px solid #E0E5EE',
+          background: on ? accent : '#fff',
+          color: on ? '#fff' : '#445170',
+          boxShadow: on ? `0 8px 20px ${accentGlow}` : 'none',
+        },
+      };
+    });
+
+    const visible = allProjects.filter(p => active === 'Todos' || p.cat === active);
+    const visibleProjects = visible.map((p, i) => {
+      const dark = p.tone !== accent;
+      return {
+        ...p,
+        num: String(i + 1).padStart(2, '0'),
+        thumbStyle: dark
+          ? `background:linear-gradient(135deg, ${p.tone}, #16315E)`
+          : `background:linear-gradient(135deg, ${this.hexToRgba(accent, 0.9)}, ${accent})`,
+        thumbInk: '#fff',
+      };
+    });
+
+    const meaning = [
+      { letter: 'D', word: 'Development', desc: 'Desarrollamos soluciones de software a la medida.' },
+      { letter: 'A', word: 'Advanced', desc: 'Usamos las mejores prácticas y tecnologías de vanguardia.' },
+      { letter: 'E', word: 'Engineering', desc: 'Aplicamos ingeniería para crear productos sólidos y escalables.' },
+      { letter: 'S', word: 'Smart', desc: 'Tecnología inteligente para resolver problemas reales.' },
+      { letter: 'A', word: 'Applications', desc: 'Creamos aplicaciones útiles, intuitivas y de alto impacto.' },
+    ];
+
+    const process = [
+      { num: '1', title: 'Entendemos tu negocio', desc: 'Escuchamos tus metas, procesos y desafíos.' },
+      { num: '2', title: 'Diseñamos la solución', desc: 'Proponemos la mejor estrategia tecnológica para ti.' },
+      { num: '3', title: 'Desarrollamos', desc: 'Creamos software rápido, seguro y escalable.' },
+      { num: '4', title: 'Implementamos', desc: 'Puesta en marcha y capacitación para tu equipo.' },
+      { num: '5', title: 'Soporte y mejoras', desc: 'Acompañamiento y evolución constante del sistema.' },
+    ];
+
+    const values = [
+      { title: 'Enfoque', desc: 'Entendemos tus necesidades y vamos directo al objetivo.' },
+      { title: 'Calidad', desc: 'Escribimos código limpio y entregamos soluciones confiables.' },
+      { title: 'Compromiso', desc: 'Nos involucramos en cada proyecto como si fuera propio.' },
+      { title: 'Innovación', desc: 'Buscamos nuevas ideas y tecnologías para mejorar siempre.' },
+    ];
+
+    const heroTags = [
+      { label: 'Software a la medida' }, { label: 'Videojuegos' },
+      { label: 'POS' }, { label: 'E-commerce' },
+    ];
+
+    return {
+      accent, accentTint, accentGlow,
+      highlight, highlightTint, highlightGlow,
+      navStyle, navTextColor, navMutedColor, logoFilter,
+      heroTitle: this.props.heroTitle || 'Software a la medida que',
+      heroAccent: this.props.heroAccent || 'impulsa tu negocio.',
+      heroTags,
+      services, filters, visibleProjects, meaning, process, values,
+      contactWhatsapp: this.props.contactWhatsapp || '844 912 3671',
+      contactEmail: this.props.contactEmail || 'ing.gaytan@icloud.com',
+    };
+  }
+}
+</script>
+</body>
+</html>
