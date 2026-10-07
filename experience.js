@@ -170,5 +170,5 @@ function createProductScene(id, business) {
   renderer.domElement.addEventListener('webglcontextlost',()=>{host.classList.remove('product-scene-loaded');visible=false;});
   host.classList.add('product-scene-loaded'); scenes.push({draw});
 }
-createProductScene('one-product-scene',false);
+
 createProductScene('business-product-scene',true);

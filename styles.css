@@ -371,3 +371,49 @@ body { background:#f5f8ff; color:#172746; }
 
 .contact-band .eyebrow,.contact-band p:last-child { color:#4e6294; }
 .button-dark { background:#243f94; }.button-dark:hover { background:#3558bf; }
+
+/* A quiet studio palette lets the real products lead the presentation. */
+body { background:#fafafa; color:#202124; }
+.desk-story { background:#f4f5f7; color:#24262b; }
+.desk-sticky { background:radial-gradient(ellipse at 78% 38%,#fff 0,#f4f5f7 60%,#e7e9ed 100%); }
+.desk-wash { background:linear-gradient(90deg,#f4f5f7 0%,#f4f5f7ee 20%,#f4f5f799 34%,transparent 56%); }
+.desk-chapter h1,.desk-chapter h2 { color:#24262b; font-weight:650; letter-spacing:-.055em; }
+.desk-chapter em { font-family:inherit; font-style:normal; font-weight:650; color:#5b5ce2; }
+.desk-chapter > p:not(.chapter-kicker),.section-heading > p,.project-info > p { color:#656771; }
+.projects .section-heading h2,.process-heading h2,.project-info h3 { color:#24262b; }
+.project-grid { grid-template-columns:1fr; gap:32px; }
+.project-card { position:relative; border:1px solid #e4e4e8; border-radius:20px; padding:36px; display:grid; grid-template-columns:1fr 1.35fr; column-gap:40px; overflow:hidden; box-shadow:0 12px 48px #22222205; }
+.project-topline { grid-column:1; margin-bottom:28px; }
+.project-info { grid-column:1; grid-row:2; align-self:center; display:block; }
+.project-info h3 { font-size:clamp(30px,3vw,44px); letter-spacing:-.045em; }
+.project-info > p { margin-top:22px; max-width:380px; line-height:1.8; }
+.project-link { grid-column:1; grid-row:3; align-self:end; margin-top:32px; }
+.phone-gallery,.project-card .store-visual { grid-column:2; grid-row:1 / 4; }
+.phone-gallery { position:relative; min-height:500px; display:flex; align-items:center; justify-content:center; isolation:isolate; perspective:1100px; background:radial-gradient(ellipse,#eeecfc 0,transparent 70%); }
+.phone { position:absolute; width:178px; margin:0; transition:transform .7s ease; }
+.phone img { display:block; width:100%; height:auto; border:5px solid #24252b; border-radius:27px; box-shadow:0 25px 45px #25213628; background:#fff; }
+.phone figcaption { text-align:center; font-size:11px; font-weight:600; color:#666477; margin-top:16px; }
+.phone-left { transform:translateX(-139px) translateY(15px) rotateY(18deg) rotateZ(-8deg) scale(.88); z-index:1; }
+.phone-right { transform:translateX(139px) translateY(15px) rotateY(-18deg) rotateZ(8deg) scale(.88); z-index:1; }
+.phone-center { z-index:2; transform:translateY(-10px); }
+.project-one:hover .phone-left { transform:translateX(-150px) translateY(8px) rotateY(10deg) rotateZ(-5deg) scale(.88); }
+.project-one:hover .phone-right { transform:translateX(150px) translateY(8px) rotateY(-10deg) rotateZ(5deg) scale(.88); }
+.project-card .store-visual { height:100%; min-height:420px; border-radius:14px; background:radial-gradient(ellipse,#eef0fa, #f8f9fc); }
+.capabilities { background:#f0f1f4; border-color:#e2e3e8; }
+.contact-band { background:#eeedf9; }
+@media(max-width:900px) {
+ .project-card { grid-template-columns:1fr; padding:25px; gap:0; }
+ .project-topline { grid-column:1; grid-row:1; margin-bottom:12px; }
+ .phone-gallery,.project-card .store-visual { grid-column:1; grid-row:2; }
+ .project-info { grid-row:3; margin-top:24px; }
+ .project-link { grid-row:4; }
+ .phone-gallery { min-height:440px; }
+ .phone { width:160px; }
+ .phone-left { transform:translateX(-102px) translateY(12px) rotateZ(-8deg) scale(.84); }
+ .phone-right { transform:translateX(102px) translateY(12px) rotateZ(8deg) scale(.84); }
+ .project-one:hover .phone-left { transform:translateX(-102px) translateY(12px) rotateZ(-8deg) scale(.84); }
+ .project-one:hover .phone-right { transform:translateX(102px) translateY(12px) rotateZ(8deg) scale(.84); }
+ .project-card .store-visual { min-height:290px; }
+}
+@media(max-width:760px) { .desk-wash { background:linear-gradient(#f4f5f7 0%,#f4f5f7 24%,#f4f5f780 38%,transparent 58%); }.phone-gallery { min-height:420px; }.phone { width:145px; }.phone figcaption { font-size:9px; } }
+@media(prefers-reduced-motion:reduce) { .phone { transition:none; } }

@@ -75,10 +75,10 @@ if (renderer) {
   }
   // A crisp, contemporary workspace: tabletop, legs, mat, monitor, keyboard and lamp.
   box(desk,11,.32,7,0xbac7de,0,-.2,0);
-  const tabletop=box(desk,10.96,.035,6.96,0xe7edf7,0,-.025,0);
-  tabletop.material=new THREE.MeshPhysicalMaterial({color:0xe7edf7,metalness:.25,roughness:.2,clearcoat:1,clearcoatRoughness:.15});
+  const tabletop=box(desk,10.96,.035,6.96,0xeff0f2,0,-.025,0);
+  tabletop.material=new THREE.MeshPhysicalMaterial({color:0xeff0f2,metalness:.25,roughness:.2,clearcoat:1,clearcoatRoughness:.15});
   [[-4.6,-2.6],[4.6,-2.6],[-4.6,2.6],[4.6,2.6]].forEach(([x,z])=>box(desk,.18,2.9,.18,0x536582,x,-1.8,z));
-  box(desk,4.4,.035,2.55,0x34476c,.65,.015,-.7);
+  box(desk,4.4,.035,2.55,0x414650,.65,.015,-.7);
   const monitor=new THREE.Group();desk.add(monitor);monitor.position.set(.7,0,-2);
   box(monitor,1.35,.09,.8,0x18243d,0,.12,0);
   box(monitor,.18,1.1,.18,0x51617d,0,.6,0);
@@ -118,12 +118,12 @@ if (renderer) {
   for(let i=0;i<7;i++){const leaf=new THREE.Mesh(new THREE.SphereGeometry(.2,12,12),mat(i%2?0x237e85:0x46b8af));leaf.scale.set(.55,2,.8);leaf.position.set(Math.cos(i*2.4)*.22,.86+Math.sin(i)*.12,Math.sin(i*2.4)*.2);leaf.rotation.z=Math.cos(i)*.6;plant.add(leaf);}
   // Piles become labelled, aligned cards. Their transforms are reversible with scroll.
   const labels=['VENTAS','FINANZAS','CLIENTES','INVENTARIO','PROVEEDORES','PROYECTOS'];
-  const colors=['#9dbbff','#bba6ff','#93d8ef','#b2c8fa','#9eacf8','#b7baff'];
+  const colors=['#ffffff','#fdfdff','#ffffff','#fafbff','#ffffff','#fdfdff'];
   function paperTexture(label,color,index) {
     const canvas=document.createElement('canvas');canvas.width=384;canvas.height=512;const c=canvas.getContext('2d');
     c.fillStyle=color;c.fillRect(0,0,384,512);c.fillStyle='#1b3157';c.font='bold 25px sans-serif';c.fillText(label,28,65);
     c.font='14px sans-serif';c.fillStyle='#3d5884';c.fillText('DAESA / '+String(index+1).padStart(2,'0'),28,96);
-    for(let i=0;i<6;i++){c.fillStyle=i===0?'#ffffff':'#ffffff88';c.fillRect(28,140+i*40,280-(i%3)*45,12);}
+    for(let i=0;i<6;i++){c.fillStyle=i===0?'#9cabe0':'#dfe3ed';c.fillRect(28,140+i*40,280-(i%3)*45,12);}
     c.fillStyle='#3964f5';c.fillRect(28,425,26,26);c.fillStyle='#fff';c.font='bold 22px sans-serif';c.fillText('✓',31,446);
     const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;return texture;
   }
@@ -155,7 +155,7 @@ if (renderer) {
     const start=modules.children[i].position;const end=modules.children[i+1].position;
     const line=new THREE.Line(new THREE.BufferGeometry().setFromPoints([start,end]),new THREE.LineBasicMaterial({color:0x5579ef,transparent:true,opacity:.45}));links.add(line);
   }
-  const floor=new THREE.Mesh(new THREE.PlaneGeometry(200,200),mat(0xe9eff8));floor.rotation.x=-Math.PI/2;floor.position.y=-3.3;floor.receiveShadow=true;scene.add(floor);
+  const floor=new THREE.Mesh(new THREE.PlaneGeometry(200,200),mat(0xf2f3f5));floor.rotation.x=-Math.PI/2;floor.position.y=-3.3;floor.receiveShadow=true;scene.add(floor);
   let aspect=1;
   function resize() {
     const w=host.clientWidth,h=host.clientHeight;if(!w||!h)return;
