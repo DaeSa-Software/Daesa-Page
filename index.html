@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/styles.css?v=immersive-1" />
     <title>DAESA Software — Tecnología hecha para resolver</title>
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_MX" />
@@ -64,38 +64,11 @@
             <div class="hero-footnote"><span class="signal" aria-hidden="true"></span> Diseñado y desarrollado en México</div>
           </div>
 
-          <div class="hero-art" data-reveal aria-label="Ilustración de una plataforma de software con módulos de ventas, inventario y análisis">
-            <div class="art-orbit orbit-one"></div>
-            <div class="art-orbit orbit-two"></div>
-            <div class="app-window">
-              <div class="window-topbar">
-                <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-                <span>daesa / productos digitales</span>
-                <span class="window-menu" aria-hidden="true">•••</span>
-              </div>
-              <div class="window-body">
-                <aside class="app-sidebar" aria-hidden="true">
-                  <span class="sidebar-brand">D</span>
-                  <span class="sidebar-icon selected"><svg viewBox="0 0 24 24"><path d="M4 13h6V4H4v9Zm10 7h6V11h-6v9ZM4 20h6v-3H4v3Zm10-13h6V4h-6v3Z" /></svg></span>
-                  <span class="sidebar-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8M8 13h5" /></svg></span>
-                  <span class="sidebar-icon"><svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h16M7 15l4-4 3 2 5-6" /></svg></span>
-                </aside>
-                <div class="app-content">
-                  <div class="app-heading"><div><span class="app-kicker">ESPACIO DE TRABAJO</span><strong>Todo en orden.</strong></div><span class="avatar">D</span></div>
-                  <div class="app-summary">
-                    <div><span>Operación</span><b>Ventas</b><i class="summary-line line-a"></i></div>
-                    <div><span>Control</span><b>Inventario</b><i class="summary-line line-b"></i></div>
-                    <div><span>Visibilidad</span><b>Reportes</b><i class="summary-line line-c"></i></div>
-                  </div>
-                  <div class="app-chart">
-                    <div class="chart-heading"><span>Actividad</span><span>Vista general <b>⌄</b></span></div>
-                    <div class="chart-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="floating-card float-top"><span class="float-icon blue" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></svg></span><span><b>Hecho para personas</b><small>Experiencias simples</small></span></div>
-            <div class="floating-card float-bottom"><span class="float-icon orange" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 18V6m0 12h16M8 14l3-3 3 2 5-6" /></svg></span><span><b>Listo para crecer</b><small>Ideas que evolucionan</small></span></div>
+          <div class="hero-art scene-shell" aria-label="Piezas que se conectan para formar una solución digital">
+            <div class="scene-canvas" id="hero-scene" aria-hidden="true"></div>
+            <div class="scene-fallback" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="scene-caption"><span class="live-dot"></span> IDEAS CONECTADAS. POSIBILIDADES REALES.</div>
+            <div class="scene-coordinate" aria-hidden="true">DAESA / DIGITAL LAB<br>01 — CONECTAR PARA CREAR</div>
           </div>
         </div>
         <div class="hero-bottom shell" aria-label="Áreas de trabajo">
@@ -153,10 +126,19 @@
 
       <section class="process section shell" id="proceso">
         <div class="section-heading process-heading" data-reveal><div><p class="eyebrow eyebrow-light">/ CÓMO TRABAJAMOS</p><h2>Estrategias ágiles.<br />Soluciones de impacto duradero.</h2></div><p>Avanzamos contigo en cada etapa y dejamos claro qué sigue, por qué y para quién.</p></div>
-        <div class="process-grid">
-          <article class="process-step" data-reveal><span>01</span><h3>Entender</h3><p>Escuchamos el contexto, las metas y los retos que sí importan.</p></article>
-          <article class="process-step" data-reveal><span>02</span><h3>Construir</h3><p>Diseñamos una solución clara y la convertimos en software funcional.</p></article>
-          <article class="process-step" data-reveal><span>03</span><h3>Evolucionar</h3><p>Medimos, aprendemos y mejoramos con el uso real.</p></article>
+        <div class="process-experience">
+          <div class="process-stage scene-shell">
+            <div id="process-scene" class="scene-canvas" aria-hidden="true"></div>
+            <div class="scene-fallback" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="stage-label"><span class="live-dot"></span><span id="stage-name">01 / ENTENDER</span></div>
+            <p id="stage-caption" aria-live="polite">Conectamos las piezas de tu idea.</p>
+            <button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="false">Pausar animación</button>
+          </div>
+          <div class="process-grid" role="group" aria-label="Explora las etapas de nuestro proceso">
+          <button type="button" class="process-step is-active" data-stage="0" aria-pressed="true"><span>01</span><h3>Entender</h3><p>Escuchamos el contexto, las metas y los retos que sí importan.</p></button>
+          <button type="button" class="process-step" data-stage="1" aria-pressed="false"><span>02</span><h3>Construir</h3><p>Diseñamos una solución clara y la convertimos en software funcional.</p></button>
+          <button type="button" class="process-step" data-stage="2" aria-pressed="false"><span>03</span><h3>Evolucionar</h3><p>Medimos, aprendemos y mejoramos con el uso real.</p></button>
+        </div>
         </div>
       </section>
 
@@ -176,6 +158,7 @@
       <div class="shell footer-bottom"><span>© <span id="year">2026</span> DAESA Software</span><span>Hecho con intención en México <span class="footer-star" aria-hidden="true">✳</span></span></div>
     </footer>
 
-    <script src="/script.js" defer></script>
+    <script src="/script.js?v=immersive-1" defer></script>
+    <script type="module" src="/experience.js"></script>
   </body>
 </html>
