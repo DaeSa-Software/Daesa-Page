@@ -103,7 +103,7 @@ function createScene(id, isProcess) {
     container.parentElement.classList.add('scene-unavailable'); visible = false;
   });
 }
-createScene('hero-scene', false);
+
 createScene('process-scene', true);
 function frame(now) { scenes.forEach(scene => scene.draw(now)); requestAnimationFrame(frame); }
 requestAnimationFrame(frame);

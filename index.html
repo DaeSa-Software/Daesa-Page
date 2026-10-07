@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles.css?v=products-3d-1" />
+    <link rel="stylesheet" href="/styles.css?v=desk-cinema-1" />
     <title>DAESA Software — Tecnología hecha para resolver</title>
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_MX" />
@@ -51,29 +51,38 @@
     </header>
 
     <main id="contenido">
-      <section class="hero">
-        <div class="hero-grid" aria-hidden="true"></div>
-        <div class="shell hero-layout">
-          <div class="hero-copy" data-reveal>
-            <p class="eyebrow"><span class="eyebrow-dot"></span> PRODUCTOS DIGITALES · SOFTWARE A LA MEDIDA</p>
-            <h1>Tecnología hecha para <span>resolver.</span></h1>
-            <p class="hero-intro">Creamos software claro, útil y pensado para la vida real: desde productos propios hasta herramientas que ayudan a los negocios a trabajar mejor.</p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#proyectos">Conoce nuestros proyectos <span aria-hidden="true">↓</span></a>
-              <a class="button button-quiet" href="https://swipy.daesasoftware.com/">Explorar SWIPY <span aria-hidden="true">↗</span></a>
+      <section class="desk-story" id="historia" aria-label="Del desorden a una operación conectada">
+        <div class="desk-sticky">
+          <div id="desk-scene" aria-hidden="true"></div>
+          <div class="desk-wash" aria-hidden="true"></div>
+          <div class="desk-editorial shell">
+            <p class="eyebrow">DAESA SOFTWARE / IDEAS QUE TOMAN FORMA</p>
+            <div class="desk-chapters">
+              <div class="desk-chapter is-current" data-chapter="0">
+                <p class="chapter-kicker">01 / EL PUNTO DE PARTIDA</p>
+                <h1>Grandes ideas.<br>Demasiadas<br> <em>piezas sueltas.</em></h1>
+                <p>Información dispersa. Tareas que se acumulan. Todo lo que necesita encontrar su lugar.</p>
+              </div>
+              <div class="desk-chapter" data-chapter="1" inert>
+                <p class="chapter-kicker">02 / EL ORDEN TIENE DISEÑO</p>
+                <h2>Conectamos<br>las piezas.<br> <em>Simplificamos<br>tu día.</em></h2>
+                <p>Convertimos procesos dispersos en herramientas claras, útiles y pensadas para las personas.</p>
+              </div>
+              <div class="desk-chapter" data-chapter="2" inert>
+                <p class="chapter-kicker">03 / POSIBILIDADES REALES</p>
+                <h2>Menos fricción.<br>Más espacio<br> <em>para crecer.</em></h2>
+                <p>Software que transforma información en claridad y conecta tu operación con lo que sigue.</p>
+                <a class="button button-primary" href="#proyectos">Explora lo que creamos <span aria-hidden="true">↓</span></a>
+              </div>
             </div>
-            <div class="hero-footnote"><span class="signal" aria-hidden="true"></span> Diseñado y desarrollado en México</div>
           </div>
-
-          <div class="hero-art scene-shell" aria-label="Piezas que se conectan para formar una solución digital">
-            <div class="scene-canvas" id="hero-scene" aria-hidden="true"></div>
-            <div class="scene-fallback" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="scene-caption"><span class="live-dot"></span> IDEAS CONECTADAS. POSIBILIDADES REALES.</div>
-            <div class="scene-coordinate" aria-hidden="true">DAESA / DIGITAL LAB<br>01 — CONECTAR PARA CREAR</div>
+          <div class="desk-bottom shell">
+            <span class="desk-scroll">DESLIZA PARA PONER LAS IDEAS EN ORDEN <span aria-hidden="true">↓</span></span>
+            <div class="desk-progress" aria-hidden="true"><i></i><i></i><i></i></div>
+            <button id="desk-motion" type="button" aria-pressed="false">Pausar movimiento</button>
           </div>
-        </div>
-        <div class="hero-bottom shell" aria-label="Áreas de trabajo">
-          <span>PRODUCTOS PROPIOS</span><i></i><span>SOFTWARE A LA MEDIDA</span><i></i><span>EXPERIENCIAS DIGITALES</span>
+          <div class="desk-status" aria-hidden="true"><span>ESTUDIO DAESA</span><strong id="desk-status-text">IDEAS SOBRE LA MESA</strong></div>
+          <div class="desk-fallback" aria-hidden="true"><span>VENTAS</span><span>IDEAS</span><span>CLIENTES</span><span>FINANZAS</span><span>PROYECTOS</span></div>
         </div>
       </section>
 
@@ -160,6 +169,7 @@
     </footer>
 
     <script src="/script.js?v=immersive-1" defer></script>
-    <script type="module" src="/experience.js?v=products-3d-1"></script>
+    <script type="module" src="/experience.js?v=desk-cinema-1"></script>
+    <script type="module" src="/desk-story.js?v=desk-cinema-1"></script>
   </body>
 </html>
