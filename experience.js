@@ -171,4 +171,4 @@ function createProductScene(id, business) {
   host.classList.add('product-scene-loaded'); scenes.push({draw});
 }
 
-createProductScene('business-product-scene',true);
+
