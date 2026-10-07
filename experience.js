@@ -107,3 +107,68 @@ createScene('hero-scene', false);
 createScene('process-scene', true);
 function frame(now) { scenes.forEach(scene => scene.draw(now)); requestAnimationFrame(frame); }
 requestAnimationFrame(frame);
+
+// Product scenes share the page's pause control and render only while visible.
+function createProductScene(id, business) {
+  const host = document.getElementById(id);
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'low-power' }); }
+  catch { return; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+  renderer.setClearColor(0x000000, 0);
+  host.appendChild(renderer.domElement);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(36, 1, .1, 40);
+  camera.position.set(0, 4.5, 8.8); camera.lookAt(0, .2, 0);
+  scene.add(new THREE.AmbientLight(0xffffff, 1.8));
+  const light = new THREE.DirectionalLight(0xffffff, 3); light.position.set(3, 6, 5); scene.add(light);
+  const rim = new THREE.DirectionalLight(business ? 0x91f2ce : 0xa894ff, 3); rim.position.set(-4, 2, -2); scene.add(rim);
+  const group = new THREE.Group(); scene.add(group);
+  const material = color => new THREE.MeshStandardMaterial({ color, metalness: .3, roughness: .3 });
+  const addBox = (x,y,z,w,h,d,color) => {
+    const mesh = new THREE.Mesh(new THREE.BoxGeometry(w,h,d), material(color));
+    mesh.position.set(x,y,z); group.add(mesh); return mesh;
+  };
+  addBox(0,-.65,0,5,.16,3.1,business ? 0x183c40 : 0x30294f);
+  const movers = [];
+  if (!business) {
+    [.7,1.25,.95,1.8,1.45,2.15].forEach((height,i) => {
+      const bar = addBox(-1.9+i*.76,-.5+height/2,0,.5,height,.55,i%2 ? 0x9064ff : 0xb5a2ff);
+      movers.push({mesh:bar, base:bar.position.y});
+    });
+    const points = [new THREE.Vector3(-2.15,.15,.7),new THREE.Vector3(-1.35,.5,.7),new THREE.Vector3(-.6,.35,.7),new THREE.Vector3(.2,.9,.7),new THREE.Vector3(1,.75,.7),new THREE.Vector3(2,1.35,.7)];
+    group.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points),40,.035,6,false),material(0x91f2ce)));
+    const coin = new THREE.Mesh(new THREE.CylinderGeometry(.48,.48,.14,40),material(0xf5ce7b));
+    coin.rotation.x=Math.PI/2; coin.position.set(1.65,2.6,-.5); group.add(coin);
+    movers.push({mesh:coin,base:2.6});
+  } else {
+    addBox(0,.1,0,1.05,1.1,1.05,0x91f2ce);
+    const nodes = [[-1.8,-.8],[-1.8,.9],[1.8,-.8],[1.8,.9],[0,-1.2]];
+    nodes.forEach(([x,z],i)=>{
+      const node=addBox(x,.05,z,.7,.75,.7,[0x79cbd7,0x9e9bff,0xf6b785,0x91f2ce,0xa1b6ef][i]);
+      movers.push({mesh:node,base:.05});
+      const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,-.25,0),new THREE.Vector3(x,-.25,z)]),new THREE.LineBasicMaterial({color:0x91f2ce})); group.add(line);
+      const cap=addBox(x,.48,z,.42,.07,.42,0xe5fff5); node.add(cap); group.remove(cap); cap.position.set(0,.42,0);
+    });
+  }
+  let visible=false,last=0,px=0;
+  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting; if(visible) draw(performance.now(),true);}).observe(host);
+  host.addEventListener('pointermove',event=>{const rect=host.getBoundingClientRect();px=(event.clientX-rect.left)/rect.width-.5;});
+  host.addEventListener('pointerleave',()=>{px=0;});
+  function draw(now,force=false) {
+    if ((!visible || document.hidden || paused) && !force) return;
+    if(!force && now-last<40) return; last=now;
+    const t=paused ? 0 : now*.001;
+    group.rotation.y=-.22+Math.sin(t*.35)*.12+px*.18;
+    movers.forEach(({mesh,base},i)=>{mesh.position.y=base+Math.sin(t*1.2+i)*.045;});
+    renderer.render(scene,camera);
+  }
+  new ResizeObserver(()=>{
+    const w=host.clientWidth,h=host.clientHeight;if(!w||!h)return;
+    renderer.setSize(w,h);camera.aspect=w/h;camera.position.z=camera.aspect<1.4?11:8.8;camera.updateProjectionMatrix();draw(performance.now(),true);
+  }).observe(host);
+  renderer.domElement.addEventListener('webglcontextlost',()=>{host.classList.remove('product-scene-loaded');visible=false;});
+  host.classList.add('product-scene-loaded'); scenes.push({draw});
+}
+createProductScene('one-product-scene',false);
+createProductScene('business-product-scene',true);
