@@ -417,3 +417,8 @@ body { background:#fafafa; color:#202124; }
 }
 @media(max-width:760px) { .desk-wash { background:linear-gradient(#f4f5f7 0%,#f4f5f7 24%,#f4f5f780 38%,transparent 58%); }.phone-gallery { min-height:420px; }.phone { width:145px; }.phone figcaption { font-size:9px; } }
 @media(prefers-reduced-motion:reduce) { .phone { transition:none; } }
+@media(max-width:480px) {
+ .phone { width:135px; }
+ .phone-left,.project-one:hover .phone-left { transform:translateX(-75px) translateY(12px) rotateZ(-7deg) scale(.78); }
+ .phone-right,.project-one:hover .phone-right { transform:translateX(75px) translateY(12px) rotateZ(7deg) scale(.78); }
+}
