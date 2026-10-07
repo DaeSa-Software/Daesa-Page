@@ -288,3 +288,7 @@ h1 span { color:#91f2ce; }
  .process-experience { grid-template-columns:1fr; }.process-stage { min-height:390px; }.process-grid { gap:10px; }.process-step { min-height:128px; }.process-step:hover { transform:none; }.process-heading h2 { font-size:38px; }.contact-band { padding:30px; }.footer-bottom { color:#a1abc2; }
 }
 @media(prefers-reduced-motion:reduce) { .screen-bars i { animation:none; }.project-card:hover,.project-card:hover .finance-screen,.project-card:hover .pos-window { transform:none; } }
+
+/* Identidad DAESA: cubo principal y monograma secundario. */
+.brand-symbol { width:48px; height:48px; object-fit:contain; border-radius:10px; flex:none; }
+.brand-symbol-secondary { width:54px; height:54px; }
